@@ -1,2 +1,2 @@
-# ejercicios-js-nodejs
-Ejercicios de práctica con js y nodejs
+# Ejercicios JS y NodeJs
+Serie de ejercicios de programacion
