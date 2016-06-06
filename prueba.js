@@ -1,3 +1,4 @@
+var _ = require('lodash');
 // Para ejecutar de manera Online
 // var Pokedex = require('./pokedex')
 // var pokedex = new Pokedex();
@@ -9,8 +10,10 @@ var pokedex = new PokedexOffline();
 var nombre1 = "pikachu";
 var nombre2 = "bulbasaur";
 
-pokedex.buscarPokemon(nombre2)
-	.then(function(poke1) {
-		poke1.calularStats();
-		poke1.hacerAlgo();
+pokedex.buscarPokemon(nombre1)
+	.then(function(poke) {
+//	console.log(poke.name);
+	poke.calularStats();
+	return poke;
 	});
+
