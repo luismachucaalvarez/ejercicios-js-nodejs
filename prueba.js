@@ -1,8 +1,7 @@
-var Pokedex = require('./pokedex')
+// var Pokedex = require('./pokedex')
+var PokedexOffline = require('./pokedexOffline')
 
-//console.log (pikachu);
-
-var pokedex = new Pokedex();
+var pokedex = new PokedexOffline();
 var nombre1 = "pikachu";
 var nombre2 = "bulbasaur";
 
