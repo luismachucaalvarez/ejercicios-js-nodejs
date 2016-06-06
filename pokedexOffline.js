@@ -3,11 +3,11 @@
 
 var rp = require('request-promise');
 var Promise = require('bluebird');
-var pokemons = require('./pokemons');
 var _ = require('lodash');
 
 var promiseResolveAsync = require("./promiseResolveAsync");
-var Pokemon = require('./pokemon');
+var Pokemon = require('./pokemon'); //clase pokemon
+var pokemons = require('./pokemons'); // array de pokemon
 
 var PokedexOffline = function() {
   this.apiUrl = "http://pokeapi.co";

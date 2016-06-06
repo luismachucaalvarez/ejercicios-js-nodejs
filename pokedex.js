@@ -3,9 +3,9 @@
 
 var rp = require('request-promise');
 var Promise = require('bluebird');
-var pikachu = require('./pikachu');
-var promiseResolveAsync = require("./promiseResolveAsync");
 var _ = require('lodash');
+
+var promiseResolveAsync = require("./promiseResolveAsync");
 var Pokemon = require('./pokemon');
 
 var Pokedex = function() {

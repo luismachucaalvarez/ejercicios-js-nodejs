@@ -1,7 +1,11 @@
+// Para ejecutar de manera Online
 // var Pokedex = require('./pokedex')
-var PokedexOffline = require('./pokedexOffline')
+// var pokedex = new Pokedex();
 
+// Para ejecutar de manera Offline
+var PokedexOffline = require('./pokedexOffline')
 var pokedex = new PokedexOffline();
+
 var nombre1 = "pikachu";
 var nombre2 = "bulbasaur";
 
