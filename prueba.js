@@ -11,5 +11,6 @@ var nombre2 = "bulbasaur";
 
 pokedex.buscarPokemon(nombre1)
 	.then(function(poke1) {
+		poke1.calularStats();
 		poke1.hacerAlgo();
 	});

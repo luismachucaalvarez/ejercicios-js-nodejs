@@ -2631,16 +2631,17 @@ PokedexOffline.prototype.findIdByName = function(name) {
 };
 
 // Dado un *nombrePokemon* devuelve una promesa del mismo.
+// La promesa resuelve a un nuevo pokemon
 PokedexOffline.prototype.buscarPokemon = function (nombrePokemon) {
-  // var pokemonRealPromise = Promise.resolve(JSON.parse(pikachu)) // -->sincrónico
-  // var pokemonRealPromise = promiseResolveAsync(JSON.parse(pikachu)); // -->asincrónico
-
   var pokemon = _.find(pokemons,function(poke) { 
     return poke.name === nombrePokemon;
   });
 
   return promiseResolveAsync(new Pokemon(pokemon));
-
 };
 
 module.exports = PokedexOffline;
+
+// Ayuda:
+// var pokemonRealPromise = Promise.resolve(JSON.parse(pikachu)) // -->sincrónico
+ // var pokemonRealPromise = promiseResolveAsync(JSON.parse(pikachu)); // -->asincrónico

@@ -9,4 +9,15 @@ Pokemon.prototype.hacerAlgo = function() {
 	console.log("creo que sí funcionó");
 }
 
+Pokemon.prototype.calularStats = function() {
+	var baseStats = this.stats.map(function(stat) {
+		return stat.base_stat;
+	});
+	var total = _.sum(baseStats);
+	console.log("El array de stars es " , baseStats);
+	console.log("El stat total es ", total);
+	// console.log(this.stats);
+	// return this.stats;
+}
+
 module.exports = Pokemon;
