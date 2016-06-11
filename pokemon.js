@@ -13,7 +13,8 @@ Pokemon.prototype.calularStats = function() {
 	var statsTotales = _.sum(this.stats.map(function(stat) {
 		return stat.base_stat;
 	}));
-	console.log("Hola soy " + this.name + " y tengo " + statsTotales + " de poder");
+	//console.log("Hola soy " + this.name + " y tengo " + statsTotales + " de poder");
+	return statsTotales;
 };
 
 

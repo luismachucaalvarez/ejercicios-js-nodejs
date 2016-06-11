@@ -1,4 +1,6 @@
 var _ = require('lodash');
+var Pokemon = require('./pokemons');
+var pokemons = require('./pokemons');
 // Para ejecutar de manera Online
 // var Pokedex = require('./pokedex')
 // var pokedex = new Pokedex();
@@ -7,13 +9,12 @@ var _ = require('lodash');
 var PokedexOffline = require('./pokedexOffline')
 var pokedex = new PokedexOffline();
 
-var nombre1 = "pikachu";
-var nombre2 = "bulbasaur";
+pokedex.compararPokemons(pokemons[0], pokemons[1]);
 
-pokedex.buscarPokemon(nombre1)
-	.then(function(poke) {
-//	console.log(poke.name);
-	poke.calularStats();
-	return poke;
-	});
+// pokedex.buscarPokemon(nombre1)
+// 	.then(function(poke) {
+// //	console.log(poke.name);
+// 	poke.calularStats();
+// 	return poke;
+// 	});
 

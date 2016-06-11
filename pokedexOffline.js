@@ -2640,6 +2640,19 @@ PokedexOffline.prototype.buscarPokemon = function (nombrePokemon) {
   return promiseResolveAsync(new Pokemon(pokemon));
 };
 
+PokedexOffline.prototype.compararPokemons = function(pokemon1, pokemon2) {
+  var losStatsP1 = pokemon1.calularStats();
+  var losStatsP2 = pokemon2.calularStats();
+  console.log(pokemon1.name);  //OK
+  console.log("Los Stats que tiene son: ", losStatsP1); // undefined T_T
+    
+  console.log(pokemon2.name);  //OK
+  console.log("Los Stats que tiene son: ", losStatsP2); // undefined T_T
+
+
+};
+
+
 module.exports = PokedexOffline;
 
 // Ayuda:
