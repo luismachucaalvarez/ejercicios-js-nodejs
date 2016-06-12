@@ -2635,7 +2635,7 @@ Pokedex.prototype.buscarPokemon = function (pokemonName) {
   var pokemonId = this.findIdByName(pokemonName);
   var pokemonPromise = rp.get(this.apiUrl + "/api/v2/pokemon/" + pokemonId)
   .then(function(poke) {
-    var poke = JSON.parse(poke);
+    var poke = new Pokemon(JSON.parse(poke));
     return poke;
   })
   .catch(function(error) { //recibe el error del rp, en este caso no lo usamos
