@@ -2645,5 +2645,13 @@ Pokedex.prototype.buscarPokemon = function (pokemonName) {
   return pokemonPromise;
 };
 
+Pokedex.prototype.compararPokemons = function(pokemon1, pokemon2) {
+  var pokemonsAComparar = [pokemon1,pokemon2];
+  var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
+    return poke.calularStats();
+  }); 
+  return pokemonCampeon;
+};
+  
 
 module.exports = Pokedex;
