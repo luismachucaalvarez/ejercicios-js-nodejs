@@ -35,15 +35,11 @@ PokedexOffline.prototype.buscarPokemon = function (nombrePokemon) {
 };
 
 PokedexOffline.prototype.compararPokemons = function(pokemon1, pokemon2) {
-  var losStatsP1 = pokemon1.calularStats();
-  var losStatsP2 = pokemon2.calularStats();
-  console.log(pokemon1.name);  //OK
-  console.log("Los Stats que tiene son: ", losStatsP1); // undefined T_T
-    
-  console.log(pokemon2.name);  //OK
-  console.log("Los Stats que tiene son: ", losStatsP2); // undefined T_T
-
-
+  var pokemonsAComparar = [pokemon1,pokemon2];
+  var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
+    return poke.calularStats();
+  }); 
+  return pokemonCampeon;
 };
 
 
