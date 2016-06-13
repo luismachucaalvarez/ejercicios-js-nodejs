@@ -12,8 +12,8 @@ var _ = require('lodash');
 var PokedexOffline = require('./pokedexOffline')
 var pokedex = new PokedexOffline();
 
-var poke1 = "bulbasaur"
-var poke2 = "pikachu"
+var poke1 = process.argv[2];
+var poke2 = process.argv[3];
 
 pokedex.buscarPokemon(poke1)
 	.then(function (poke1) {
