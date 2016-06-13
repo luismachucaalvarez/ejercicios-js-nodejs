@@ -24,7 +24,7 @@ pokedex.buscarPokemon(poke1)
 			+ " y " 
 			+ poke2.name + " con "+ poke2.calularStats());
 			
-			var ganador = pokedex.compararPokemons(poke1,poke2);
+			var ganador = pokedex.obtenerPokemonConMayorStats(poke1,poke2);
 			console.log("el ganador es " + ganador.name + " con " + ganador.calularStats());
 		});
 			
