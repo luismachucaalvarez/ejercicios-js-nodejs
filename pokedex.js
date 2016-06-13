@@ -2631,7 +2631,7 @@ Pokedex.prototype.findIdByName = function(name) {
 
 // Función que permite buscar por el ID del pokemon, los datos en la api
 
-Pokedex.prototype.buscarPokemon = function (pokemonName) {
+Pokedex.prototype.getPokemonByName = function (pokemonName) {
   var pokemonId = this.findIdByName(pokemonName);
   var pokemonPromise = rp.get(this.apiUrl + "/api/v2/pokemon/" + pokemonId)
   .then(function(poke) {
@@ -2645,13 +2645,12 @@ Pokedex.prototype.buscarPokemon = function (pokemonName) {
   return pokemonPromise;
 };
 
-Pokedex.prototype.obtenerPokemonConMayorStats = function(pokemon1, pokemon2) {
+Pokedex.prototype.getPokemonWithTopStats = function(pokemon1, pokemon2) {
   var pokemonsAComparar = [pokemon1,pokemon2];
   var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
-    return poke.calularStats();
+    return poke.getPokemonStats();
   }); 
   return pokemonCampeon;
 };
   
-
 module.exports = Pokedex;

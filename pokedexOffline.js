@@ -26,7 +26,7 @@ PokedexOffline.prototype.findIdByName = function(name) {
 
 // Dado un *nombrePokemon* devuelve una promesa del mismo.
 // La promesa resuelve a un nuevo pokemon
-PokedexOffline.prototype.buscarPokemon = function (nombrePokemon) {
+PokedexOffline.prototype.getPokemonByName = function (nombrePokemon) {
   var pokemon = _.find(pokemons,function(poke) { 
     return poke.name === nombrePokemon;
   });
@@ -34,10 +34,10 @@ PokedexOffline.prototype.buscarPokemon = function (nombrePokemon) {
   return promiseResolveAsync(new Pokemon(pokemon));
 };
 
-PokedexOffline.prototype.obtenerPokemonConMayorStats = function(pokemon1, pokemon2) {
+PokedexOffline.prototype.getPokemonWithTopStats = function(pokemon1, pokemon2) {
   var pokemonsAComparar = [pokemon1,pokemon2];
   var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
-    return poke.calularStats();
+    return poke.getPokemonStats();
   }); 
   return pokemonCampeon;
 };

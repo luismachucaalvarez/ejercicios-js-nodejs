@@ -1,4 +1,4 @@
-# Ejercicio
+ Ejercicio
 
 Hacer una solución que pueda comparar dos pokemon y devolver el que tenga más **estadística total**.
 
