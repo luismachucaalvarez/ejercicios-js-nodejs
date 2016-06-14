@@ -48,20 +48,19 @@ PokedexOffline.prototype.getTopStats = function(pokemon1, pokemon2) {
 };
 
 PokedexOffline.prototype.showPokemonWithTopStats = function (poke1, poke2) {
-getPokemonByName(poke1)
-  .then(function (poke1) {
-    getPokemonByName(poke2)
-    .then(function(poke2) {
-      console.log("los pokemons que compiten son: "
+  var self = this;
+  this.getPokemonByName(poke1).then(function (poke1) {
+    self.getPokemonByName(poke2).then(function(poke2) {
+      console.log("los pokemon que compiten son: "
       + poke1.name + " con "+ poke1.getPokemonStats()
       + " y " 
       + poke2.name + " con "+ poke2.getPokemonStats());
-      
-      var ganador = getTopStats(poke1,poke2);
-    //  console.log("el ganador es " + ganador.name + " con " + ganador.getPokemonStats());
+        
+      var ganador = self.getTopStats(poke1,poke2);
+      console.log("el ganador es " + ganador.name + " con " + ganador.getPokemonStats());
     });
-});
-}
+  });
+};
 
 module.exports = PokedexOffline;
 
