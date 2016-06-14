@@ -1,5 +1,10 @@
 "use strict"
 // pokedex de consulta online
+// Métodos:
+// findIdByName(name)
+// getPokemonByName(name)
+// getPokemonWithTopStats(pokemon1,pokemon2)
+
 
 var rp = require('request-promise');
 var Promise = require('bluebird');
@@ -34,7 +39,7 @@ PokedexOffline.prototype.getPokemonByName = function (nombrePokemon) {
   return promiseResolveAsync(new Pokemon(pokemon));
 };
 
-PokedexOffline.prototype.getPokemonWithTopStats = function(pokemon1, pokemon2) {
+PokedexOffline.prototype.getTopStats = function(pokemon1, pokemon2) {
   var pokemonsAComparar = [pokemon1,pokemon2];
   var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
     return poke.getPokemonStats();
@@ -42,6 +47,21 @@ PokedexOffline.prototype.getPokemonWithTopStats = function(pokemon1, pokemon2) {
   return pokemonCampeon;
 };
 
+PokedexOffline.prototype.showPokemonWithTopStats = function (poke1, poke2) {
+getPokemonByName(poke1)
+  .then(function (poke1) {
+    getPokemonByName(poke2)
+    .then(function(poke2) {
+      console.log("los pokemons que compiten son: "
+      + poke1.name + " con "+ poke1.getPokemonStats()
+      + " y " 
+      + poke2.name + " con "+ poke2.getPokemonStats());
+      
+      var ganador = getTopStats(poke1,poke2);
+    //  console.log("el ganador es " + ganador.name + " con " + ganador.getPokemonStats());
+    });
+});
+}
 
 module.exports = PokedexOffline;
 
