@@ -2,7 +2,6 @@
 // pokedex de consulta online
 // findIdByName(name)
 // getPokemonByName(name)
-// getPokemonWithTopStats(pokemon1,pokemon2)
 
 var rp = require('request-promise');
 var Promise = require('bluebird');
@@ -2633,7 +2632,6 @@ Pokedex.prototype.findIdByName = function(name) {
 };
 
 // Función que permite buscar por el ID del pokemon, los datos en la api
-
 Pokedex.prototype.getPokemonByName = function (pokemonName) {
   var pokemonId = this.findIdByName(pokemonName);
   var pokemonPromise = rp.get(this.apiUrl + "/api/v2/pokemon/" + pokemonId)
@@ -2647,6 +2645,5 @@ Pokedex.prototype.getPokemonByName = function (pokemonName) {
 
   return pokemonPromise;
 };
-
 
 module.exports = Pokedex;

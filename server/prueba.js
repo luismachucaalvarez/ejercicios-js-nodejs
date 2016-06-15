@@ -1,5 +1,6 @@
+"use strict"
 var _ = require('lodash');
-var CLI = require('./domain/cli')
+var CLI = require('./domain/cli');
 var cli = new CLI();
 
 //Ingreso de parametros por consola
@@ -12,5 +13,5 @@ cli.showPokemonWithTopStat(poke1,poke2);
 
 // Stat Total del pokemon
 cli.showPokemonStat(poke1);
-// Id del pokemon 
-cli.getPokemonId(poke1)
+// Id del pokemon
+cli.showPokemonId(poke1)

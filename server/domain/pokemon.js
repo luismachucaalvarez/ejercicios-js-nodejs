@@ -5,7 +5,7 @@ var Pokemon = function(pokemon) {
 };
 
 Pokemon.prototype.getPokemonStat = function() {
-	var statsTotales = _.sum(this.stats.map(function(stat) {
+var statsTotales = _.sum(this.stats.map(function(stat) {
 		return stat.base_stat;
 	}));
 	return statsTotales;

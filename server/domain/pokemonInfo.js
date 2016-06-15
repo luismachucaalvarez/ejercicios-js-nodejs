@@ -1,3 +1,5 @@
+// Permite obtener cierta información del pokemon
+
 var _ = require('lodash');
 var Pokemon = require('./pokemon')
 var pokemon = new Pokemon();
@@ -14,9 +16,5 @@ PokemonInfo.prototype.getTopStat = function(pokemon1, pokemon2) {
   }); 
   return pokemonCampeon;
 };
-
-PokemonInfo.prototype.getIdpokemon = function(pokemonName) {
-	
-}
 
 module.exports = PokemonInfo

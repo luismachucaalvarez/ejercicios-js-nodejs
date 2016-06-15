@@ -13,7 +13,7 @@ var PokedexOffline = function() {
 };
 
 // Dado un *nombrePokemon* devuelve una promesa del mismo.
-// La promesa resuelve a un nuevo pokemon
+// La promesa resuelve a un nuevo pokemon (como objeto)
 PokedexOffline.prototype.getPokemonByName = function (nombrePokemon) {
   var pokemon = _.find(pokemons,function(poke) { 
     return poke.name === nombrePokemon;
