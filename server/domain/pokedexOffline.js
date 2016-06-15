@@ -39,27 +39,12 @@ PokedexOffline.prototype.getPokemonByName = function (nombrePokemon) {
   return promiseResolveAsync(new Pokemon(pokemon));
 };
 
-PokedexOffline.prototype.getTopStats = function(pokemon1, pokemon2) {
+PokedexOffline.prototype.getTopStat = function(pokemon1, pokemon2) {
   var pokemonsAComparar = [pokemon1,pokemon2];
   var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
-    return poke.getPokemonStats();
+    return poke.getPokemonStat();
   }); 
   return pokemonCampeon;
-};
-
-PokedexOffline.prototype.showPokemonWithTopStats = function (poke1, poke2) {
-  var self = this;
-  this.getPokemonByName(poke1).then(function (poke1) {
-    self.getPokemonByName(poke2).then(function(poke2) {
-      console.log("los pokemon que compiten son: "
-      + poke1.name + " con "+ poke1.getPokemonStats()
-      + " y " 
-      + poke2.name + " con "+ poke2.getPokemonStats());
-        
-      var ganador = self.getTopStats(poke1,poke2);
-      console.log("el ganador es " + ganador.name + " con " + ganador.getPokemonStats());
-    });
-  });
 };
 
 module.exports = PokedexOffline;
