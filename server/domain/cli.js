@@ -1,15 +1,18 @@
 var _ = require('lodash');
 var Pokemon = require('./pokemon')
 var pokemon = new Pokemon();
+var PokemonInfo = require('./pokemonInfo');
+var pokemonInfo = new PokemonInfo();
 
-//Para ejecutar de manera Online
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Para ejecutar de manera Online
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // var Pokedex = require('./domain/pokedex')
 // var pokedex = new Pokedex();
-
-
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Offline
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 var PokedexOffline = require('../domain/pokedexOffline')
 var pokedex = new PokedexOffline();
 //var Pokemon = require('./pokemon');
@@ -25,7 +28,7 @@ CLI.prototype.showPokemonWithTopStat = function(poke1, poke2) {
       + " y "
       + poke2.name + " con "+ poke2.getPokemonStat());
         
-      var ganador = pokedex.getTopStat(poke1,poke2);
+      var ganador = pokemonInfo.getTopStat(poke1,poke2);
       console.log("el ganador es " + ganador.name + " con " + ganador.getPokemonStat());
     });
   });
@@ -36,6 +39,13 @@ CLI.prototype.showPokemonStat = function(pokemonName) {
     console.log("el Stat del pokemon " + pokemonName + " es " + poke.getPokemonStat());
   })
 };
+
+CLI.prototype.getPokemonId = function(pokemonName) {
+  pokedex.getPokemonByName(pokemonName).then(function(poke) {
+    console.log("el Id del Pokemon " + pokemonName + " es "+ poke.id);
+  })
+};
+
 
 
 
