@@ -1,6 +1,6 @@
 "use strict"
-var PokemonInfo = require('./pokemonInfo');
-var PokemonComparato = new PokemonComparato();
+var PokemonComparator = require('./pokemonComparator');
+var pokemonComparator = new PokemonComparator();
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Online
@@ -26,7 +26,7 @@ CLI.prototype.showPokemonWithTopStat = function(nombrePoke1, nombrePoke2) {
       + " y "
       + poke2.name + " con "+ poke2.getStat());
         
-      var ganador = PokemonComparato.getTopStat(poke1,poke2);
+      var ganador = pokemonComparator.getTopStat(poke1,poke2);
       console.log("El ganador es " + ganador.name + " con: " + ganador.getStat());
     });
   });
