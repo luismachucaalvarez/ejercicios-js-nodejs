@@ -1,8 +1,6 @@
 // Permite obtener cierta información del pokemon
 
 var _ = require('lodash');
-var Pokemon = require('./pokemon')
-var pokemon = new Pokemon();
 
 var PokemonInfo = function() {
 

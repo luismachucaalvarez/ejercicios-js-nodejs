@@ -14,7 +14,7 @@ var pokedex = new Pokedex();
 // var PokedexOffline = require('../domain/pokedexOffline');
 // var pokedex = new PokedexOffline();
 
-var CLI = function(pokemon) {
+var CLI = function() {
 };
 
 //Muestra el pokemon con mayore stat (compara entre 2)
