@@ -4,8 +4,6 @@
 // getPokemonByName(name)
 
 var rp = require('request-promise');
-var Promise = require('bluebird');
-var _ = require('lodash');
 
 var promiseResolveAsync = require("../domain/promiseResolveAsync");
 var Pokemon = require('../domain/pokemon');
