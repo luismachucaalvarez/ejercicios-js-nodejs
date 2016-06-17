@@ -1,6 +1,6 @@
 "use strict"
 var PokemonInfo = require('./pokemonInfo');
-var pokemonInfo = new PokemonInfo();
+var PokemonComparato = new PokemonComparato();
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Online
@@ -18,15 +18,15 @@ var CLI = function() {
 };
 
 //Muestra el pokemon con mayore stat (compara entre 2)
-CLI.prototype.showPokemonWithTopStat = function(poke1, poke2) {
-  pokedex.getPokemonByName(poke1).then(function(poke1) {
-    pokedex.getPokemonByName(poke2).then(function(poke2) {
+CLI.prototype.showPokemonWithTopStat = function(nombrePoke1, nombrePoke2) {
+  pokedex.getPokemonByName(nombrePoke1).then(function(poke1) {
+    pokedex.getPokemonByName(nombrePoke2).then(function(poke2) {
       console.log("Los pokemon que compiten son: "
       + poke1.name + " con "+ poke1.getStat()
       + " y "
       + poke2.name + " con "+ poke2.getStat());
         
-      var ganador = pokemonInfo.getTopStat(poke1,poke2);
+      var ganador = PokemonComparato.getTopStat(poke1,poke2);
       console.log("El ganador es " + ganador.name + " con: " + ganador.getStat());
     });
   });

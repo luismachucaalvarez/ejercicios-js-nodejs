@@ -2,12 +2,12 @@
 
 var _ = require('lodash');
 
-var PokemonInfo = function() {
+var PokemonComparato = function() {
 
 };
 
 // Recupera el pokemon con mayor stat
-PokemonInfo.prototype.getTopStat = function(pokemon1, pokemon2) {
+PokemonComparato.prototype.getTopStat = function(pokemon1, pokemon2) {
   var pokemonsAComparar = [pokemon1,pokemon2];
   var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
     return poke.getStat();
@@ -15,4 +15,4 @@ PokemonInfo.prototype.getTopStat = function(pokemon1, pokemon2) {
   return pokemonCampeon;
 };
 
-module.exports = PokemonInfo
+module.exports = PokemonComparato
