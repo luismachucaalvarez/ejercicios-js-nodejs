@@ -1,6 +1,4 @@
 "use strict"
-var Pokemon = require('./pokemon')
-var pokemon = new Pokemon();
 var PokemonInfo = require('./pokemonInfo');
 var pokemonInfo = new PokemonInfo();
 

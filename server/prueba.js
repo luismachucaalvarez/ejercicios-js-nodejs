@@ -1,5 +1,4 @@
 "use strict"
-var _ = require('lodash');
 var CLI = require('./domain/cli');
 var cli = new CLI();
 
