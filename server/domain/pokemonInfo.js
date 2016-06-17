@@ -12,7 +12,7 @@ var PokemonInfo = function() {
 PokemonInfo.prototype.getTopStat = function(pokemon1, pokemon2) {
   var pokemonsAComparar = [pokemon1,pokemon2];
   var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
-    return poke.getPokemonStat();
+    return poke.getStat();
   }); 
   return pokemonCampeon;
 };

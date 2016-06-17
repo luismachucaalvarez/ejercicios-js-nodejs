@@ -22,12 +22,12 @@ CLI.prototype.showPokemonWithTopStat = function(poke1, poke2) {
   pokedex.getPokemonByName(poke1).then(function(poke1) {
     pokedex.getPokemonByName(poke2).then(function(poke2) {
       console.log("Los pokemon que compiten son: "
-      + poke1.name + " con "+ poke1.getPokemonStat()
+      + poke1.name + " con "+ poke1.getStat()
       + " y "
-      + poke2.name + " con "+ poke2.getPokemonStat());
+      + poke2.name + " con "+ poke2.getStat());
         
       var ganador = pokemonInfo.getTopStat(poke1,poke2);
-      console.log("El ganador es " + ganador.name + " con: " + ganador.getPokemonStat());
+      console.log("El ganador es " + ganador.name + " con: " + ganador.getStat());
     });
   });
 };
@@ -35,7 +35,7 @@ CLI.prototype.showPokemonWithTopStat = function(poke1, poke2) {
 // Stat Total del pokemon
 CLI.prototype.showPokemonStat = function(pokemonName) {
   pokedex.getPokemonByName(pokemonName).then(function(poke) {
-    console.log("El Stat del pokemon " + pokemonName + " es: " + poke.getPokemonStat());
+    console.log("El Stat del pokemon " + pokemonName + " es: " + poke.getStat());
   });
 };
 
