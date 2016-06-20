@@ -9,11 +9,15 @@ var bulbasaur = new Pokemon(require('../collections/bulbasaur'));
 
 
 describe('pokemonComparator', function() {
-  it('getTopStat() si recibe pikachu y a bulbasaur, retorna pikachu', function() {
-    expect(pokemonComparator.getTopStat(pikachu, bulbasaur)).to.equal(pikachu);
-  });
-  it('getTopStat() si recibe bulbasaur y a pikachu, retorna pikachu', function() {
-  	expect(pokemonComparator.getTopStat(bulbasaur, pikachu)).to.equal(pikachu);
-  });
+
+	describe('getTopStat()', function() {
+	  it('Si recibe pikachu y a bulbasaur, retorna pikachu', function() {
+	    expect(pokemonComparator.getTopStat(pikachu, bulbasaur)).to.equal(pikachu);
+	  });
+	  it('Si recibe bulbasaur y a pikachu, retorna pikachu', function() {
+	  	expect(pokemonComparator.getTopStat(bulbasaur, pikachu)).to.equal(pikachu);
+	  });
+	});
+
 });
 

@@ -4,11 +4,6 @@ var Pokemon = require('./pokemon');
 var Pokedex = require('./pokedex');
 var pokedex = new Pokedex();
 
-var pikachu = new Pokemon(require('../collections/pikachu'));
-// var bulbasaur = new Pokemon(require('../collections/bulbasaur'));
-// var kakuna = new Pokemon(require('../collections/kakuna'));
-
-
 describe('pokedex', function() {
 
 	describe('findIdByName', function() {
