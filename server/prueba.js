@@ -1,5 +1,5 @@
 "use strict"
-var CLI = require('./domain/cli');
+var CLI = require('./cli');
 var cli = new CLI();
 
 //Ingreso de parametros por consola

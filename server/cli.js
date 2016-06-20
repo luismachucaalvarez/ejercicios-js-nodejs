@@ -1,11 +1,11 @@
 "use strict"
-var PokemonComparator = require('./pokemonComparator');
+var PokemonComparator = require('./domain/pokemonComparator');
 var pokemonComparator = new PokemonComparator();
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Online
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var Pokedex = require('./pokedex')
+var Pokedex = require('./domain/pokedex')
 var pokedex = new Pokedex();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Offline
