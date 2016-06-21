@@ -1,26 +1,21 @@
 var chai = require('chai');
-var expect = chai.expect; // we are using the "expect" style of Chai
-var Pokemon = require('./pokemon');
+var expect = chai.expect;
 var Pokedex = require('./pokedex');
 var pokedex = new Pokedex();
 
-describe('pokedex', function() {
+describe('Pokedex', function() {
 
 	describe('findIdByName', function() {
-	  it('Si recibe pikachu retorna 25', function() {
+	  it('Recibe pikachu retorna 25', function() {
 	    expect(pokedex.findIdByName("pikachu")).to.equal(25);
 	  });
-	  it('Si recibe kakuna retorna 14', function() {
+	  it('Recibe kakuna retorna 14', function() {
 	    expect(pokedex.findIdByName("kakuna")).to.equal(14);
 	  });
-	  it('Si recibe bulbasaur retorna 1', function() {
-	  	expect(pokedex.findIdByName("bulbasaur")).to.equal(1);
+	  it('Recibe vacio retorna null', function() {
+	  	expect(pokedex.findIdByName(null)).to.equal(null);
 	  });
+	  
 	});
-// Falta simular el acceso a la api online
-	// describe('getPokemonByName', function() {
-	//   it('Si recibe pikachu retorna a pikachu', function() {
-	//     expect(pokedex.getPokemonByName("pikachu")).to.equal(pikachu);
-	//   });
-	// });
+
 });
