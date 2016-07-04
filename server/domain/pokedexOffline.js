@@ -3,6 +3,7 @@
 // Métodos:
 // getPokemonByName(name)
 
+var Promise = require('bluebird');
 var _ = require('lodash');
 
 var promiseResolveAsync = require("./promiseResolveAsync");
@@ -22,8 +23,23 @@ PokedexOffline.prototype.getPokemonByName = function (nombrePokemon) {
   return promiseResolveAsync(new Pokemon(pokemon));
 };
 
+PokedexOffline.prototype.getPokemonsByNames = function (nombresDePokemon) {
+  var self = this;
+  var pokemons = nombresDePokemon.map(function(nombrePokemon) {
+    return self.getPokemonByName(nombrePokemon);
+  });
+
+  return Promise.all(pokemons);
+};
+
 module.exports = PokedexOffline;
 
 // Ayuda:
 // var pokemonRealPromise = Promise.resolve(JSON.parse(pikachu)) // -->sincrónico
- // var pokemonRealPromise = promiseResolveAsync(JSON.parse(pikachu)); // -->asincrónico
+// var pokemonRealPromise = promiseResolveAsync(JSON.parse(pikachu)); // -->asincrónico
+// Promise.all
+/*
+  **recibe** un array de promesas.
+  **devuelve** una promesa que **resuelve** a un array, 
+  con los valores de resolución de cada promesa.
+*/

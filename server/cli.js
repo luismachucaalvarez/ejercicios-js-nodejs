@@ -17,18 +17,16 @@ var pokedex = new PokedexOffline();
 var CLI = function() {
 };
 
-//Muestra el pokemon con mayore stat (compara entre 2)
-CLI.prototype.showPokemonWithTopStat = function(nombrePoke1, nombrePoke2) {
-  pokedex.getPokemonByName(nombrePoke1).then(function(poke1) {
-    pokedex.getPokemonByName(nombrePoke2).then(function(poke2) {
-      console.log("Los pokemon que compiten son: "
-      + poke1.name + " con "+ poke1.getStat()
-      + " y "
-      + poke2.name + " con "+ poke2.getStat());
-        
-      var ganador = pokemonComparator.getTopStat(poke1,poke2);
-      console.log("El ganador es " + ganador.name + " con: " + ganador.getStat());
-    });
+//Muestra el pokemon con mayor stat (compara un array de pokemon)
+CLI.prototype.showPokemonWithTopStat = function(nombresDePokemon) {
+  pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
+    var ganador = pokemonComparator.getTopStat(pokemons);
+    console.log("Los pokemon que compiten son:");
+    var pokemonsParticipantes = pokemons.map(function(poke) {
+      return poke.name + " con " + poke.getStat();
+    }).join("\n");
+    console.log(pokemonsParticipantes);
+    console.log("el ganador es: " + ganador.name + " con " + ganador.getStat());
   });
 };
 
@@ -46,6 +44,13 @@ CLI.prototype.showPokemonStat = function(pokemonName) {
 CLI.prototype.showPokemonId = function(pokemonName) {
   pokedex.getPokemonByName(pokemonName).then(function(poke) {
     console.log("El Id del Pokemon " + pokemonName + " es: "+ poke.id);
+  });
+};
+
+
+CLI.prototype.showPokemons = function(nombresDePokemon) {
+  pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
+    console.log(pokemons);
   });
 };
 
