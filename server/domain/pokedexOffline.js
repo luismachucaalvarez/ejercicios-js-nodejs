@@ -1,7 +1,8 @@
 "use strict"
 // pokedex de consulta online
 // Métodos:
-// getPokemonByName(name)
+// getPokemonByName(nombrePokemon)
+// getPokemonsByNames(nombresDePokemon)
 
 var Promise = require('bluebird');
 var _ = require('lodash');
