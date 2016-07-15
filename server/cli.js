@@ -47,7 +47,7 @@ CLI.prototype.showPokemonId = function(pokemonName) {
   });
 };
 
-
+//Se utiliza solo para mostrar los pokemons a modo debug
 CLI.prototype.showPokemons = function(nombresDePokemon) {
   pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
     console.log(pokemons);

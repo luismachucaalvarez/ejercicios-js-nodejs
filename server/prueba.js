@@ -8,12 +8,14 @@ var cli = new CLI();
 var pokemonsNames = process.argv.slice(2);
 
 
-//Muestra el pokemon con mayore stat (compara entre 2)
+//Muestra el pokemon con mayor stat 
 cli.showPokemonWithTopStat(pokemonsNames);
 
-// Stat Total del pokemon
+//Stat Total del pokemon
 //cli.showPokemonStat(nombrePoke1);
-// Id del pokemon
+
+
+//Id del pokemon
 //cli.showPokemonId(nombrePoke1)
 
 //cli.showPokemons(pokemonsNames); //-->muestra los pokemons 

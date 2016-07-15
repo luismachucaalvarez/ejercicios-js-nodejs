@@ -1,5 +1,5 @@
 "use strict"
-// pokedex de consulta online
+// pokedex de consulta offline
 // Métodos:
 // getPokemonByName(nombrePokemon)
 // getPokemonsByNames(nombresDePokemon)
