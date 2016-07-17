@@ -2,8 +2,8 @@
 // pokedex de consulta offline
 // Métodos:
 // getPokemonByName(nombrePokemon)
-// getPokemonsByNames(nombresDePokemon)
 
+var Pokedex = require("./pokedex");
 var Promise = require('bluebird');
 var _ = require('lodash');
 
@@ -13,6 +13,9 @@ var pokemons = require('../collections/pokemons'); // array de pokemon
 
 var PokedexOffline = function() {
 };
+
+//Para heredar el prototipo de la clase abstracta Pokedex
+PokedexOffline.prototype = Object.create(Pokedex.prototype);
 
 // Dado un *nombrePokemon* devuelve una promesa del mismo.
 // La promesa resuelve a un nuevo pokemon (como objeto)
@@ -24,14 +27,6 @@ PokedexOffline.prototype.getPokemonByName = function (nombrePokemon) {
   return promiseResolveAsync(new Pokemon(pokemon));
 };
 
-PokedexOffline.prototype.getPokemonsByNames = function (nombresDePokemon) {
-  var self = this;
-  var pokemons = nombresDePokemon.map(function(nombrePokemon) {
-    return self.getPokemonByName(nombrePokemon);
-  });
-
-  return Promise.all(pokemons);
-};
 
 module.exports = PokedexOffline;
 

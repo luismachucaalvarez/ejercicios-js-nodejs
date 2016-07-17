@@ -1,6 +1,6 @@
 var chai = require('chai');
 var expect = chai.expect;
-var Pokedex = require('./pokedex');
+var Pokedex = require('./pokedexOnline');
 var pokedex = new Pokedex();
 
 describe('Pokedex', function() {
