@@ -2629,7 +2629,7 @@ PokedexOnline.prototype.findIdByName = function(name) {
     return pokemon.name.toUpperCase() === name.toUpperCase();
   })[0];
 
-  return (pokemon !== null)
+  return (pokemon != null)
   ? parseInt(pokemon.dec)
   : null;
 };

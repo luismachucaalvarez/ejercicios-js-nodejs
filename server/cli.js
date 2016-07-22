@@ -5,8 +5,8 @@ var pokemonComparator = new PokemonComparator();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Online
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var Pokedex = require('./domain/pokedexOnline')
-var pokedex = new Pokedex();
+var PokedexOnline = require('./domain/pokedexOnline')
+var pokedex = new PokedexOnline();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Offline
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -19,7 +19,7 @@ var CLI = function() {
 
 //Muestra el pokemon con mayor stat (compara un array de pokemon)
 CLI.prototype.showPokemonWithTopStat = function(nombresDePokemon) {
-  pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
+  return pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
     var ganador = pokemonComparator.getTopStat(pokemons);
     console.log("Los pokemon que compiten son:");
     var pokemonsParticipantes = pokemons.map(function(poke) {
@@ -30,9 +30,16 @@ CLI.prototype.showPokemonWithTopStat = function(nombresDePokemon) {
   });
 };
 
+// Solo muestra al pokemon Total del pokemon
+CLI.prototype.showPokemon = function(pokemonName) {
+  return pokedex.getPokemonByName(pokemonName).then(function(poke) {
+    console.log("El pokemon es: " + poke.name);
+  });
+};
+
 // Stat Total del pokemon
 CLI.prototype.showPokemonStat = function(pokemonName) {
-  pokedex.getPokemonByName(pokemonName).then(function(poke) {
+  return pokedex.getPokemonByName(pokemonName).then(function(poke) {
     console.log("El Stat del pokemon " + pokemonName + " es: " + poke.getStat());
   });
 };
@@ -42,16 +49,23 @@ CLI.prototype.showPokemonStat = function(pokemonName) {
 // dado que pokedex tiene una función similar, pero es la consulta
 // dentro del array reducido de la pokedex
 CLI.prototype.showPokemonId = function(pokemonName) {
-  pokedex.getPokemonByName(pokemonName).then(function(poke) {
+  return pokedex.getPokemonByName(pokemonName).then(function(poke) {
     console.log("El Id del Pokemon " + pokemonName + " es: "+ poke.id);
   });
 };
 
 //Se utiliza solo para mostrar los pokemons a modo debug
 CLI.prototype.showPokemons = function(nombresDePokemon) {
-  pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
+  return pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
     console.log(pokemons);
   });
 };
+
+CLI.prototype.tryToDo = function(unaFuncion) {
+  unaFuncion().catch(function(x){
+    console.log(x);
+  }); 
+};
+
 
 module.exports = CLI;
