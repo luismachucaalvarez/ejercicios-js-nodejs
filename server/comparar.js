@@ -11,9 +11,11 @@ node comparar pikachu bulbasaur charmander --criterio "(function(poke)  { return
 node comparar pikachu bulbasaur charmander --criterio "(function(poke)  { return poke.id; })"
 node comparar pikachu bulbasaur charmander --criterio "(function(poke)  { return poke.order; })"
 node comparar pikachu bulbasaur charmander --criterio "(function(poke)  { return poke.weight; })"
+node comparar pikachu bulbasaur charmander --criterio "(function(poke)  { return poke.weight; })"
 
-**** Ejemplo de comparación por statsTotales
-node comparar pikachu bulbasaur charmander -- No funciona :/
+
+**** Ejemplo de comparación por statsTotales 
+node comparar pikachu bulbasaur charmander 
 
 /+++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
@@ -29,4 +31,6 @@ if (process.argv[process.argv.length-2] == "--criterio") {
 	var pokemonsNames = process.argv.slice(2);
 	cli.showPokemonWithTopStat(pokemonsNames); //Muestra el pokemon con mayor stat 
 };
+
+
 

@@ -55,7 +55,7 @@ CLI.prototype.showPokemons = function(nombresDePokemon) {
 };
 
 //Permite mostrar el campeon por un criterio especifico
-//Ver c´omo poder incorporar el valor del criterio por el cual se hace la comparaci´on
+//Ver cómo poder incorporar el mensaje seguún los solicitado en el issue
 CLI.prototype.showPokemonChampionByCanon = function(nombresDePokemon,funcionDeCriterio){
   pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons){
     var ganador = pokemonComparator.getByCanon(pokemons,funcionDeCriterio);

@@ -1,5 +1,3 @@
-// Permite obtener cierta información del pokemon
-
 var _ = require('lodash');
 
 var PokemonComparator = function() {
@@ -14,7 +12,7 @@ PokemonComparator.prototype.getTopStat = function(pokemonsAComparar) {
 	return pokemonCampeon;
 };
 
-// Compara a los pokemon por un criterio definido en tiempo de ejecucion (por algun motivo no funciona ´ en sublime)
+// Compara a los pokemon por un criterio definido en tiempo de ejecución 
 PokemonComparator.prototype.getByCanon = function(pokemonsAComparar, funcionAUtilizar){
 	var funcCriterio = eval(funcionAUtilizar);
 	var pokemonCampeon =  _.maxBy(pokemonsAComparar, funcCriterio);
