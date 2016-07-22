@@ -5,14 +5,14 @@ var pokemonComparator = new PokemonComparator();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Online
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var Pokedex = require('./domain/pokedexOnline')
-var pokedex = new Pokedex();
+// var Pokedex = require('./domain/pokedexOnline')
+// var pokedex = new Pokedex();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Offline
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// var PokedexOffline = require('./domain/pokedexOffline');
-// var pokedex = new PokedexOffline();
+var PokedexOffline = require('./domain/pokedexOffline');
+var pokedex = new PokedexOffline();
 
 var CLI = function() {
 };
@@ -53,5 +53,18 @@ CLI.prototype.showPokemons = function(nombresDePokemon) {
     console.log(pokemons);
   });
 };
+
+//Permite mostrar el campeon por un criterio especifico
+//Ver c´omo poder incorporar el valor del criterio por el cual se hace la comparaci´on
+CLI.prototype.showPokemonChampionByCanon = function(nombresDePokemon,funcionDeCriterio){
+  pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons){
+    var ganador = pokemonComparator.getByCanon(pokemons,funcionDeCriterio);
+    console.log("Según el criterio de comparación: " + funcionDeCriterio.slice(25,-4))
+    console.log("El ganador es: " + ganador.name);
+    //console.log(ganador);
+  });
+
+  
+ }
 
 module.exports = CLI;
