@@ -20,17 +20,13 @@ node comparar pikachu bulbasaur charmander -- No funciona :/
 "use strict"
 var CLI = require('./cli');
 var cli = new CLI();
-//console.log(process.argv.length);
-// console.log(process.argv.slice(2));
-//console.log(process.argv[process.argv.length-2]);
 
 if (process.argv[process.argv.length-2] == "--criterio") {
 	var pokemonsNames = process.argv.slice(2,-2);
 	var funcionCriterio = process.argv[process.argv.length-1];
-	cli.showPokemonChampionByCanon(pokemonsNames, funcionCriterio); //comparación por el criterio
+	cli.showPokemonChampionByCanon(pokemonsNames, funcionCriterio); //compara por el criterio
 } else {
 	var pokemonsNames = process.argv.slice(2);
-	//Muestra el pokemon con mayor stat 
-	cli.showPokemonWithTopStat(pokemonsNames);
+	cli.showPokemonWithTopStat(pokemonsNames); //Muestra el pokemon con mayor stat 
 };
 
