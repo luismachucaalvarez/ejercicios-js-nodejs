@@ -21,6 +21,18 @@ var pokemonsNames = process.argv.slice(2);
 //cli.showPokemons(pokemonsNames); //-->muestra los pokemons 
 
 cli.tryToDo(function() {
-	return cli.showPokemon(nombrePoke1);
+	//Muestra el pokemon con mayor stat 
+//cli.showPokemonWithTopStat(pokemonsNames);
+
+//Stat Total del pokemon
+//cli.showPokemonStat(nombrePoke1);
+
+
+//Id del pokemon
+	//return cli.showPokemonId(nombrePoke1)
+	return cli.showPokemonWithTopStat(pokemonsNames);
+//cli.showPokemons(pokemonsNames); //-->muestra los pokemons 
+//	return cli.showPokemon(nombrePoke1);
+
 });
 
