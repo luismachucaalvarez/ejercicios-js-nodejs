@@ -2624,26 +2624,26 @@ PokedexOnline.prototype = Object.create(Pokedex.prototype);
 
 //Busca el Id del pokemon dentro del array de la clase
 PokedexOnline.prototype.findIdByName = function(name) {
-	if (name === null) return null;
-	var pokemon = this.pokemons.filter(function(pokemon) {
-		return pokemon.name.toUpperCase() === name.toUpperCase();
-	})[0];
+  if (name === null) return null;
+  var pokemon = this.pokemons.filter(function(pokemon) {
+    return pokemon.name.toUpperCase() === name.toUpperCase();
+  })[0];
 
-	return (pokemon !== null)
-	? parseInt(pokemon.dec)
-	: null;
+  return (pokemon !== null)
+  ? parseInt(pokemon.dec)
+  : null;
 };
 
 // Función que permite buscar por el ID del pokemon, los datos en la api
 PokedexOnline.prototype.getPokemonByName = function (pokemonName) {
-	var pokemonId = this.findIdByName(pokemonName);
-	var pokemonPromise = rp.get(this.apiUrl + "/api/v2/pokemon/" + pokemonId)
-	.then(function(poke) {
-		var poke = new Pokemon(JSON.parse(poke));
-		return poke;
-	})
+  var pokemonId = this.findIdByName(pokemonName);
+  var pokemonPromise = rp.get(this.apiUrl + "/api/v2/pokemon/" + pokemonId)
+  .then(function(poke) {
+    var poke = new Pokemon(JSON.parse(poke));
+    return poke;
+  })
   .catch(function(error) { //recibe el error del rp, en este caso no lo usamos
-  	throw new Error("No se puede encontrar el pokemon " + pokemonName);
+    throw new Error("No se puede encontrar el pokemon " + pokemonName);
   });
 
   return pokemonPromise;

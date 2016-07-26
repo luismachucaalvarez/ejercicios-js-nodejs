@@ -20,11 +20,11 @@ PokedexOffline.prototype = Object.create(Pokedex.prototype);
 // Dado un *nombrePokemon* devuelve una promesa del mismo.
 // La promesa resuelve a un nuevo pokemon (como objeto)
 PokedexOffline.prototype.getPokemonByName = function (nombrePokemon) {
-	var pokemon = _.find(pokemons,function(poke) { 
-		return poke.name === nombrePokemon;
-	});
+  var pokemon = _.find(pokemons,function(poke) {
+    return poke.name === nombrePokemon;
+  });
 
-	return promiseResolveAsync(new Pokemon(pokemon));
+  return promiseResolveAsync(new Pokemon(pokemon));
 };
 
 
@@ -36,6 +36,6 @@ module.exports = PokedexOffline;
 // Promise.all
 /*
   **recibe** un array de promesas.
-  **devuelve** una promesa que **resuelve** a un array, 
+  **devuelve** una promesa que **resuelve** a un array,
   con los valores de resolución de cada promesa.
   */
