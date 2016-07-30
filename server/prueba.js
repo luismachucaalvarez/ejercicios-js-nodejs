@@ -24,8 +24,8 @@ var pokemonsNames = process.argv.slice(2);
 //*************************************
 //Llamadas a funciones
 //*************************************
-
-cli.showPokemonWithTopStat(pokemonsNames); //Muestra el pokemon con mayor stat
+cli.tryToDo(function() {
+return cli.showChampionPokemonByStat(pokemonsNames); //Muestra el pokemon con mayor stat
 
 //cli.showPokemonChampionByCanon(pokemonsNames,eval(funcionCriterio));
 
@@ -36,3 +36,5 @@ cli.showPokemonWithTopStat(pokemonsNames); //Muestra el pokemon con mayor stat
 //cli.showPokemonId(nombrePoke1); //Id del pokemon
 
 //cli.showPokemons(pokemonsNames); //-->muestra los pokemons
+
+});
