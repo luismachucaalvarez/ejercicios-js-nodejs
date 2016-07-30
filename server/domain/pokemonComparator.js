@@ -14,8 +14,7 @@ PokemonComparator.prototype.getTopStat = function(pokemonsAComparar) {
 
 // Compara a los pokemon por un criterio definido en tiempo de ejecución
 PokemonComparator.prototype.getByCanon = function(pokemonsAComparar, funcionAUtilizar){
-  var funcCriterio = eval(funcionAUtilizar);
-  var pokemonCampeon =  _.maxBy(pokemonsAComparar, funcCriterio);
+  var pokemonCampeon =  _.maxBy(pokemonsAComparar, funcionAUtilizar);
   return pokemonCampeon;
 };
 

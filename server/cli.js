@@ -51,43 +51,23 @@ CLI.prototype.showPokemons = function(nombresDePokemon) {
 };
 
 // Muestra el campeón según el criterio de comparación ingresado
-CLI.prototype.showPokemonChampionByCanon = function(nombresDePokemon,funcionDeCriterio){
+CLI.prototype.showChampionPokemonByCanon = function(nombresDePokemon,funcionDeCriterio){
   return pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons){
     console.log("Los pokemon que compiten son:");
 
     var pokemonsParticipantes = pokemons.map(function(poke) {
-      return poke.name + " con " + eval(funcionDeCriterio)(poke);
+      return poke.name + " con " + funcionDeCriterio(poke);
     }).join("\n");
     console.log(pokemonsParticipantes);
 
     var ganador = pokemonComparator.getByCanon(pokemons,funcionDeCriterio);
-    console.log("El ganador es: " + ganador.name + " con: " + eval(funcionDeCriterio)(ganador));
-    //console.log(ganador);
+    console.log("El ganador es: " + ganador.name + " con: " + funcionDeCriterio(ganador));
   });
 };
 
-
-/**************************************/
-
-CLI.prototype.showPokemonWithTopStat = function(nombresdepokemon) {
-  //return this.showPokemonChampionByCanon(nombresdepokemon,"(function(poke) { return new PokemonComparator().getTopStat(poke); })");
-  return this.showPokemonChampionByCanon(nombresdepokemon,"new PokemonComparator().getTopStat(poke))");
-
+// Muestra el pokemon con mayor stat total
+CLI.prototype.showChampionPokemonWithTopStat = function(nombresDePokemon) {
+  return this.showChampionPokemonByCanon(nombresDePokemon,function(poke) { return poke.getStat(); });
 };
-/**************************************/
-
-
-// // Muestra el pokemon con mayor stat (compara un array de pokemon) -- FUNCIONA
-// CLI.prototype.showPokemonWithTopStat = function(nombresDePokemon) {
-//  pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
-//    var ganador = pokemonComparator.getTopStat(pokemons);
-//    console.log("Los pokemon que compiten son:");
-//    var pokemonsParticipantes = pokemons.map(function(poke) {
-//      return poke.name + " con " + poke.getStat();
-//    }).join("\n");
-//    console.log(pokemonsParticipantes);
-//    console.log("el ganador es: " + ganador.name + " con " + ganador.getStat());
-//  });
-// };
 
 module.exports = CLI;
