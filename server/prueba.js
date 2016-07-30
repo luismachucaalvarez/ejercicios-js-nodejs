@@ -8,7 +8,15 @@ var nombrePoke1 = process.argv[2];
 //var nombrePoke2 = process.argv[3];
 var pokemonsNames = process.argv.slice(2);
 
-//Muestra el pokemon con mayor stat 
+cli.tryToDo(function() {
+	return cli.showPokemonWithTopStat(pokemonsNames);
+});
+
+
+
+//cli.tryToDo(cli.showPokemonWithTopStat(["pikachu","bulbasaur"]))
+
+//Muestra el pokemon con mayor stat
 //cli.showPokemonWithTopStat(pokemonsNames);
 
 //Stat Total del pokemon
@@ -18,10 +26,10 @@ var pokemonsNames = process.argv.slice(2);
 //Id del pokemon
 //cli.showPokemonId(nombrePoke1)
 
-//cli.showPokemons(pokemonsNames); //-->muestra los pokemons 
+//cli.showPokemons(pokemonsNames); //-->muestra los pokemons
 
-cli.tryToDo(function() {
-	//Muestra el pokemon con mayor stat 
+
+//Muestra el pokemon con mayor stat
 //cli.showPokemonWithTopStat(pokemonsNames);
 
 //Stat Total del pokemon
@@ -29,10 +37,9 @@ cli.tryToDo(function() {
 
 
 //Id del pokemon
-	//return cli.showPokemonId(nombrePoke1)
-	return cli.showPokemonWithTopStat(pokemonsNames);
-//cli.showPokemons(pokemonsNames); //-->muestra los pokemons 
-//	return cli.showPokemon(nombrePoke1);
+//return cli.showPokemonId(nombrePoke1)
 
-});
+//cli.showPokemons(pokemonsNames); //-->muestra los pokemons
+//return cli.showPokemon(nombrePoke1);
+
 

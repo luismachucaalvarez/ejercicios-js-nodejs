@@ -5,14 +5,14 @@ var pokemonComparator = new PokemonComparator();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Online
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var PokedexOnline = require('./domain/pokedexOnline')
-var pokedex = new PokedexOnline();
+// var PokedexOnline = require('./domain/pokedexOnline')
+// var pokedex = new PokedexOnline();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Offline
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// var PokedexOffline = require('./domain/pokedexOffline');
-// var pokedex = new PokedexOffline();
+var PokedexOffline = require('./domain/pokedexOffline');
+var pokedex = new PokedexOffline();
 
 var CLI = function() {
 };
@@ -44,8 +44,8 @@ CLI.prototype.showPokemonStat = function(pokemonName) {
   });
 };
 
-// Id del pokemon 
-// Nota: En este caso puede parecer redundante, 
+// Id del pokemon
+// Nota: En este caso puede parecer redundante,
 // dado que pokedex tiene una función similar, pero es la consulta
 // dentro del array reducido de la pokedex
 CLI.prototype.showPokemonId = function(pokemonName) {
@@ -62,9 +62,10 @@ CLI.prototype.showPokemons = function(nombresDePokemon) {
 };
 
 CLI.prototype.tryToDo = function(unaFuncion) {
-  unaFuncion().catch(function(x){
-    console.log(x);
-  }); 
+  return unaFuncion().catch(function(error){
+    console.log(error);
+    return error;
+  });
 };
 
 

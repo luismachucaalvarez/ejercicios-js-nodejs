@@ -1,4 +1,4 @@
-// el archivo permite armar un array de pokemons para dar soporte a pokedexOffline.
+// Se arma un array de pokemons para dar soporte a pokedexOffline.
 var Pokemon = require('../domain/pokemon');
 var pikachu = require('./pikachu');
 var bulbasaur = require('./bulbasaur');
