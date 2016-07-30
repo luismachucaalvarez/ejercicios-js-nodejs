@@ -30,14 +30,14 @@ CLI.prototype.showPokemonWithTopStat = function(nombresDePokemon) {
   });
 };
 
-// Solo muestra al pokemon Total del pokemon
+// Solo muestra al pokemon
 CLI.prototype.showPokemon = function(pokemonName) {
   return pokedex.getPokemonByName(pokemonName).then(function(poke) {
     console.log("El pokemon es: " + poke.name);
   });
 };
 
-// Stat Total del pokemon
+// Stat total del pokemon
 CLI.prototype.showPokemonStat = function(pokemonName) {
   return pokedex.getPokemonByName(pokemonName).then(function(poke) {
     console.log("El Stat del pokemon " + pokemonName + " es: " + poke.getStat());

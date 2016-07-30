@@ -24,7 +24,7 @@ PokedexOffline.prototype.getPokemonByName = function (nombrePokemon) {
     return poke.name === nombrePokemon;
   });
 
-  if (pokemon === undefined)
+  if (pokemon == undefined)
     // return new Promise(function(resolve, reject) {
     //   reject("No existe");
     // })
