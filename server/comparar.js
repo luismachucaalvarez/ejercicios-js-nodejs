@@ -25,8 +25,8 @@ var cli = new CLI();
 cli.tryToDo(function(){
   if (process.argv[process.argv.length-2] == "--criterio") {
     var pokemonsNames = process.argv.slice(2,-2);
-    var funcionCriterio = process.argv[process.argv.length-1];
-    return cli.showChampionPokemonByCanon(pokemonsNames, eval(funcionCriterio)); //Compara por el criterio
+    var criterio = process.argv[process.argv.length-1];
+    return cli.showChampionPokemonByCanon(pokemonsNames, eval(criterio)); //Compara por el criterio
   } else {
     var pokemonsNames = process.argv.slice(2);
     return cli.showChampionPokemonByStat(pokemonsNames); //Muestra el pokemon con mayor stat

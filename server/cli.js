@@ -1,5 +1,5 @@
-//CLI - Interfave Control Line --> Permite la mostrar por consola los resultados de las llamadas por consola.
-//Metodos
+//CLI - Interface Control Line --> Permite mostrar por consola los resultados de las llamadas por consola.
+// Métodos
 // showPokemonStat(pokemonName) // Muestra el Stat de un pokemon
 // showPokemonId(pokemonName) // Muestra el Id de un Pokemon
 // showPokemons(nombresDePokemon) // Muestra el Pokemon correspondiente al nombre ingresado - usado para debug
@@ -51,17 +51,17 @@ CLI.prototype.showPokemons = function(nombresDePokemon) {
 };
 
 // Muestra el campeón según el criterio de comparación ingresado
-CLI.prototype.showChampionPokemonByCanon = function(nombresDePokemon,funcionDeCriterio){
+CLI.prototype.showChampionPokemonByCanon = function(nombresDePokemon,criterio){
   return pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons){
     console.log("Los pokemon que compiten son:");
 
     var pokemonsParticipantes = pokemons.map(function(poke) {
-      return poke.name + " con " + funcionDeCriterio(poke);
+      return poke.name + " con " + criterio(poke);
     }).join("\n");
     console.log(pokemonsParticipantes);
 
-    var ganador = pokemonComparator.getByCanon(pokemons,funcionDeCriterio);
-    console.log("El ganador es: " + ganador.name + " con: " + funcionDeCriterio(ganador));
+    var ganador = pokemonComparator.getByCanon(pokemons,criterio);
+    console.log("El ganador es: " + ganador.name + " con: " + criterio(ganador));
   });
 };
 
