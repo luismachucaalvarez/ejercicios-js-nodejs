@@ -9,7 +9,6 @@ PokemonComparator.prototype.getTopStat = function(pokemonsAComparar) {
   return this.getByCanon(pokemonsAComparar,function(poke) {
     return poke.getStat();
   });
-  return pokemonCampeon;
 };
 
 // Compara a los pokemon por un criterio definido en tiempo de ejecución
