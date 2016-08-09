@@ -3,9 +3,6 @@ var expect = chai.expect;
 var CLI = require('./cli');
 var cli = new CLI();
 
-//console.log(cli.tyToDo); //es una función
-//console.log(cli.showChampionPokemonByStat); //es una función
-
 
 describe('cli', function() {
 
