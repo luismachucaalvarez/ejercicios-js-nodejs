@@ -1,5 +1,6 @@
-//CLI - Interface Control Line --> Permite mostrar por consola los resultados de las llamadas por consola.
-// Métodos
+//CLI - Command-line interface --> Permite mostrar por consola los resultados de las
+//llamadas por consola.
+// Métodos:
 // showPokemonStat(pokemonName) // Muestra el Stat de un pokemon
 // showPokemonId(pokemonName) // Muestra el Id de un Pokemon
 // showPokemons(nombresDePokemon) // Muestra el Pokemon correspondiente al nombre ingresado - usado para debug
