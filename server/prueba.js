@@ -2,44 +2,39 @@
 var CLI = require('./cli');
 var cli = new CLI();
 
-
-//Ingreso de parametros por consola
-var nombrePoke1 = process.argv[2];
+//*************************************
+//Ingreso de parámetros por consola
+//*************************************
+//var nombrePoke1 = process.argv[2];
 //var nombrePoke2 = process.argv[3];
 var pokemonsNames = process.argv.slice(2);
+//var pokemonsNames = process.argv.slice(2,-2);
+//var funcionCriterio = process.argv[process.argv.length-1];
+//var funcionCriterio = process.argv[process.argv.length-1];
 
+//*************************************
+// Debug de los parámetros.
+//*************************************
+// console.log("los pokemons son: ", pokemonsNames);
+// console.log("La funcion a evaluar es: ", funcionCriterio);
+// console.log("el total de parametros es " + process.argv.length);
+// console.log("quedaria la funcion: " , process.argv[6]);
+// console.log("quedaria la funcion: " , process.argv[process.argv.length-1]);
+
+//*************************************
+//Llamadas a funciones
+//*************************************
 cli.tryToDo(function() {
-	return cli.showPokemonWithTopStat(pokemonsNames);
+return cli.showChampionPokemonByStat(pokemonsNames); //Muestra el pokemon con mayor stat
+
+//cli.showPokemonChampionByCanon(pokemonsNames,eval(funcionCriterio));
+
+//cli.showPokemonChampionByCanon(pokemonsNames, funcionCriterio);
+
+//cli.showPokemonStat(nombrePoke1); //Stat Total del pokemon
+
+//cli.showPokemonId(nombrePoke1); //Id del pokemon
+
+//cli.showPokemons(pokemonsNames); //-->muestra los pokemons
+
 });
-
-
-
-//cli.tryToDo(cli.showPokemonWithTopStat(["pikachu","bulbasaur"]))
-
-//Muestra el pokemon con mayor stat
-//cli.showPokemonWithTopStat(pokemonsNames);
-
-//Stat Total del pokemon
-//cli.showPokemonStat(nombrePoke1);
-
-
-//Id del pokemon
-//cli.showPokemonId(nombrePoke1)
-
-//cli.showPokemons(pokemonsNames); //-->muestra los pokemons
-
-
-//Muestra el pokemon con mayor stat
-//cli.showPokemonWithTopStat(pokemonsNames);
-
-//Stat Total del pokemon
-//cli.showPokemonStat(nombrePoke1);
-
-
-//Id del pokemon
-//return cli.showPokemonId(nombrePoke1)
-
-//cli.showPokemons(pokemonsNames); //-->muestra los pokemons
-//return cli.showPokemon(nombrePoke1);
-
-

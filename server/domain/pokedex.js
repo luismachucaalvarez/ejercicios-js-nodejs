@@ -1,4 +1,7 @@
 //Clase abstracta de Pokedex
+//Métodos:
+//getPokemonsByNames(nombresDePokemon)
+
 var Promise = require('bluebird');
 
 var Pokedex = function() {

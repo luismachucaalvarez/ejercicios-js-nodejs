@@ -1,3 +1,13 @@
+//CLI - Command-line interface --> Permite mostrar por consola los resultados de las
+//llamadas por consola.
+// Métodos:
+// showPokemonStat(pokemonName) // Muestra el Stat de un pokemon
+// showPokemonId(pokemonName) // Muestra el Id de un Pokemon
+// showPokemons(nombresDePokemon) // Muestra el Pokemon correspondiente al nombre ingresado - usado para debug
+// showPokemonChampionByCanon(nombresDePokemon,funcionDeCriterio) //Muestra el pokemon ganador según un criterio de comparación
+// showPokemonWithTopStat(nombresDePokemon) // Muestra el pokemon con mayor stat
+
+
 "use strict"
 var PokemonComparator = require('./domain/pokemonComparator');
 var pokemonComparator = new PokemonComparator();
@@ -17,27 +27,7 @@ var pokedex = new PokedexOffline();
 var CLI = function() {
 };
 
-//Muestra el pokemon con mayor stat (compara un array de pokemon)
-CLI.prototype.showPokemonWithTopStat = function(nombresDePokemon) {
-  return pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
-    var ganador = pokemonComparator.getTopStat(pokemons);
-    console.log("Los pokemon que compiten son:");
-    var pokemonsParticipantes = pokemons.map(function(poke) {
-      return poke.name + " con " + poke.getStat();
-    }).join("\n");
-    console.log(pokemonsParticipantes);
-    console.log("el ganador es: " + ganador.name + " con " + ganador.getStat());
-  });
-};
-
-// Solo muestra al pokemon
-CLI.prototype.showPokemon = function(pokemonName) {
-  return pokedex.getPokemonByName(pokemonName).then(function(poke) {
-    console.log("El pokemon es: " + poke.name);
-  });
-};
-
-// Stat total del pokemon
+// Muestra el stat de un pokemon
 CLI.prototype.showPokemonStat = function(pokemonName) {
   return pokedex.getPokemonByName(pokemonName).then(function(poke) {
     console.log("El Stat del pokemon " + pokemonName + " es: " + poke.getStat());
@@ -54,11 +44,31 @@ CLI.prototype.showPokemonId = function(pokemonName) {
   });
 };
 
-//Se utiliza solo para mostrar los pokemons a modo debug
+// Se utiliza solo para mostrar los pokemons a modo debug
 CLI.prototype.showPokemons = function(nombresDePokemon) {
   return pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons) {
     console.log(pokemons);
   });
+};
+
+// Muestra el campeón según el criterio de comparación ingresado
+CLI.prototype.showChampionPokemonByCanon = function(nombresDePokemon,criterio){
+  return pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons){
+    console.log("Los pokemon que compiten son:");
+
+    var pokemonsParticipantes = pokemons.map(function(poke) {
+      return poke.name + " con " + criterio(poke);
+    }).join("\n");
+    console.log(pokemonsParticipantes);
+
+    var ganador = pokemonComparator.getByCanon(pokemons,criterio);
+    console.log("El ganador es: " + ganador.name + " con: " + criterio(ganador));
+  });
+};
+
+// Muestra el pokemon con mayor stat total
+CLI.prototype.showChampionPokemonByStat = function(nombresDePokemon) {
+  return this.showChampionPokemonByCanon(nombresDePokemon,function(poke) { return poke.getStat(); });
 };
 
 CLI.prototype.tryToDo = function(unaFuncion) {
@@ -67,6 +77,5 @@ CLI.prototype.tryToDo = function(unaFuncion) {
     return error;
   });
 };
-
 
 module.exports = CLI;

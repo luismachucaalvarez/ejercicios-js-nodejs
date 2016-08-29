@@ -1,17 +1,20 @@
-// Permite obtener cierta información del pokemon
-
 var _ = require('lodash');
 
 var PokemonComparator = function() {
 
 };
 
-// Recupera el pokemon con mayor stat
+// Retorna el pokemon con mayor stat
 PokemonComparator.prototype.getTopStat = function(pokemonsAComparar) {
-	var pokemonCampeon = _.maxBy(pokemonsAComparar, function(poke) {
-		return poke.getStat();
-	}); 
-	return pokemonCampeon;
+  return this.getByCanon(pokemonsAComparar,function(poke) {
+    return poke.getStat();
+  });
+};
+
+// Compara a los pokemon por un criterio definido en tiempo de ejecución
+PokemonComparator.prototype.getByCanon = function(pokemonsAComparar, funcionAUtilizar){
+  var pokemonCampeon =  _.maxBy(pokemonsAComparar, funcionAUtilizar);
+  return pokemonCampeon;
 };
 
 module.exports = PokemonComparator

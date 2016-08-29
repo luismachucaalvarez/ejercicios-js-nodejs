@@ -18,4 +18,4 @@ describe('Pokedex', function() {
 
   });
 
-});git
+});

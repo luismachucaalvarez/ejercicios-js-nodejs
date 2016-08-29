@@ -44,4 +44,4 @@ module.exports = PokedexOffline;
   **recibe** un array de promesas.
   **devuelve** una promesa que **resuelve** a un array,
   con los valores de resolución de cada promesa.
-*/
+  */
