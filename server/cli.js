@@ -15,14 +15,14 @@ var pokemonComparator = new PokemonComparator();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Online
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// var PokedexOnline = require('./domain/pokedexOnline')
-// var pokedex = new PokedexOnline();
+var PokedexOnline = require('./domain/pokedexOnline')
+var pokedex = new PokedexOnline();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Offline
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-var PokedexOffline = require('./domain/pokedexOffline');
-var pokedex = new PokedexOffline();
+// var PokedexOffline = require('./domain/pokedexOffline');
+// var pokedex = new PokedexOffline();
 
 var CLI = function() {
 };
@@ -52,23 +52,31 @@ CLI.prototype.showPokemons = function(nombresDePokemon) {
 };
 
 // Muestra el campeón según el criterio de comparación ingresado
-CLI.prototype.showChampionPokemonByCanon = function(nombresDePokemon,criterio){
+CLI.prototype.showChampionPokemonByCanon = function(nombresDePokemon, criterio){
   return pokedex.getPokemonsByNames(nombresDePokemon).then(function(pokemons){
-    console.log("Los pokemon que compiten son:");
+
+    var invocarCriterio = function(poke) {
+      try {
+        return criterio(poke);
+      } catch (e) {
+        throw new Error("El criterio rompió: " + e + ".");
+      }
+    }
 
     var pokemonsParticipantes = pokemons.map(function(poke) {
-      return poke.name + " con " + criterio(poke);
+      return poke.name + " con " + invocarCriterio(poke);
     }).join("\n");
+    console.log("Los pokemon que compiten son:");
     console.log(pokemonsParticipantes);
 
-    var ganador = pokemonComparator.getByCanon(pokemons,criterio);
-    console.log("El ganador es: " + ganador.name + " con: " + criterio(ganador));
+    var ganador = pokemonComparator.getByCanon(pokemons, criterio);
+    console.log("El ganador es: " + ganador.name + " con: " + invocarCriterio(ganador));
   });
 };
 
 // Muestra el pokemon con mayor stat total
 CLI.prototype.showChampionPokemonByStat = function(nombresDePokemon) {
-  return this.showChampionPokemonByCanon(nombresDePokemon,function(poke) { return poke.getStat(); });
+  return this.showChampionPokemonByCanon(nombresDePokemon, function(poke) { return poke.getStat(); });
 };
 
 CLI.prototype.tryToDo = function(unaFuncion) {
