@@ -54,7 +54,7 @@ describe('PokemonComparator', function() {
       })).to.equal(pikachu);
     })
 
-    it('Si recive a Kakuna y dragonite y compara por mayor cantidad de habilidades, retorna dragonite', function() {
+    it('Si recibe a Kakuna y dragonite y compara por mayor cantidad de habilidades, retorna dragonite', function() {
       expect(pokemonComparator.getByCanon([kakuna, dragonite], function(pokemon) {
         return pokemon.abilities.length
       })).equal(dragonite);
