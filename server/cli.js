@@ -15,14 +15,14 @@ var pokemonComparator = new PokemonComparator();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Online
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-var PokedexOnline = require('./domain/pokedexOnline')
-var pokedex = new PokedexOnline();
+// var PokedexOnline = require('./domain/pokedexOnline')
+// var pokedex = new PokedexOnline();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Para ejecutar de manera Offline
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-// var PokedexOffline = require('./domain/pokedexOffline');
-// var pokedex = new PokedexOffline();
+var PokedexOffline = require('./domain/pokedexOffline');
+var pokedex = new PokedexOffline();
 
 var CLI = function() {
 };
